@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-
-
-"""Integer addition"""
+"""0-add_integer.py and tests/0-add_integer.txt"""
 
 
 def add_integer(a, b=98):
     """
-    Function adds two integers
+    adds an integer
+    unit tests located in tests/0-add_integer.txt
+    checks for type errors
     """
     if isinstance(a, (int, float)) is False:
         raise TypeError('a must be an integer')
