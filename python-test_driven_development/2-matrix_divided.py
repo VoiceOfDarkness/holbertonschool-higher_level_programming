@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """2-matrix_divided.py and tests/2-matrix_divided.txt"""
 
+
 def matrix_divided(matrix: list, div: int):
     """
     divides matrix elements
