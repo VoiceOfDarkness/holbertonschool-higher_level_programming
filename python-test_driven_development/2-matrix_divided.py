@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+"""2-matrix_divided.py and tests/2-matrix_divided.txt"""
+
 def matrix_divided(matrix: list, div: int):
+    """
+    divides matrix elements
+    unit tests located in tests/2-matrix_divided.txt
+    checks for type errors
+    """
     listError = 'matrix must be a matrix (list of lists) of integers/floats'
     sizeError = 'Each row of the matrix must have the same size'
     if not isinstance(matrix, (list)):
