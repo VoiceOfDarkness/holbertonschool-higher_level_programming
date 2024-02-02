@@ -20,6 +20,11 @@ Tests for matrix_divided in 2-matrix_divided.py
 >>> matrix_divided([[19, 20, 21],[22, 23, 24]], 1)
 [[19.0, 20.0, 21.0], [22.0, 23.0, 24.0]]
 
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], 'magawashere')
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number
+
 >>> matrix_divided([[1, 2, 3],[4, 5, 6]], 0)
 Traceback (most recent call last):
   ...
