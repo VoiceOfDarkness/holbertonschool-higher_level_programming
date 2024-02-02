@@ -25,7 +25,7 @@ Traceback (most recent call last):
   ...
 TypeError: div must be a number
 
->>> matrix_divided([[0.0, 0.0., 0.0],[0.0, 0.0, 0.0]], 0.0)
+>>> matrix_divided([[0.0, 0.0, 0.0],[0.0, 0.0, 0.0]], 0.0)
 Traceback (most recent call last):
   ...
 ZeroDivisionError: division by zero
