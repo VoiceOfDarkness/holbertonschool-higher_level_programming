@@ -11,6 +11,8 @@ def matrix_divided(matrix: list, div: int):
     sizeError = 'Each row of the matrix must have the same size'
     if not isinstance(matrix, (list)):
         raise TypeError(listError)
+    if div == 0.0 or div == 0:
+        raise ZeroDivisionError('division by zero')
     for row in matrix:
         if not all(isinstance(i, (int, float)) for i in row):
             raise TypeError(listError)
