@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Documentation for checker"""
 
 
 def matrix_mul(m_a, m_b):
+    """Docs for checker"""
     if not isinstance(m_a, list):
         raise TypeError('m_a must be a list')
     if not isinstance(m_b, list):
