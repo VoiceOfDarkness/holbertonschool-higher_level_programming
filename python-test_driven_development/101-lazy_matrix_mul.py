@@ -19,10 +19,10 @@ def lazy_matrix_mul(m_a, m_b):
         raise TypeError('m_b must be a list of lists')
 
     if not any(m_a):
-        raise ValueError("m_a can't be empty")
+        raise ValueError("shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)")
 
     if not any(m_b):
-        raise ValueError("m_b can't be empty")
+        raise ValueError("shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)")
 
     if not all(isinstance(i, float) or isinstance(i, int)
                for j in m_a for i in j):
