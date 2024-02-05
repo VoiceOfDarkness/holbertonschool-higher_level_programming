@@ -52,6 +52,6 @@ class Rectangle:
         return "".join(result)
 
     def __repr__(self) -> str:
-       result = "Rectangle(" + str(self.__width) + ", " \
-               + str(self.__height) + ")"
-       return result
+        result = "Rectangle(" + str(self.__width) + ", " \
+                + str(self.__height) + ")"
+        return result
