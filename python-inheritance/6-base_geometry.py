@@ -6,4 +6,4 @@ class BaseGeometry:
     """Docs for holberton checker"""
 
     def area(self):
-        raise NotImplemented("area() is not implemented")
+        raise Exception("area() is not implemented")
