@@ -5,5 +5,6 @@
 def write_file(filename="", text=""):
     """Docs for holberton checker"""
 
-    with open(filename, mode='a', encoding='utf-8') as f:
-        f.write(text)
+    with open(filename, mode='a+', encoding='utf-8') as f:
+        result = f.write(text)
+    return result
