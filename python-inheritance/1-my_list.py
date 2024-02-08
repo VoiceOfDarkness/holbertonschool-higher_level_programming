@@ -6,4 +6,4 @@ class MyList(list):
     """docs for holberton checker"""
 
     def print_sorted(self):
-        print(sorted(self)) 
+        print(sorted(self))

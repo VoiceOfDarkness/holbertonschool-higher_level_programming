@@ -31,3 +31,8 @@ Tests for text_indentation in 1-my_list.py
 
 >>> my_list.print_sorted()
 []
+
+>>> my_list = MyList([])
+
+>>> my_list.print_sorted()
+[]
