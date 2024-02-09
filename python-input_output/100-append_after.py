@@ -9,7 +9,7 @@ def append_after(filename="", search_string="", new_string=""):
         lines = file.readlines()
 
     new_lines = []
-    
+
     for i in range(len(lines)):
         new_lines.append(lines[i])
         if search_string in lines[i]:
