@@ -5,7 +5,7 @@
 def pascal_triangle(n):
     """Docs for holberton checker"""
 
-    if n < 0:
+    if n <= 0:
         return []
 
     triangle = [[1]]
