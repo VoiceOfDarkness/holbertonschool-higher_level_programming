@@ -34,7 +34,7 @@ if __name__ == "__main__":
             total_size += size
             if code in status_codes:
                 status_codes[code] += 1
-        except ValueError:
+        except (IndexError, ValueError):
             continue
 
         line_count += 1
