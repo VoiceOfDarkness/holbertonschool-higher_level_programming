@@ -29,7 +29,7 @@ if __name__ == "__main__":
     for line in sys.stdin:
         try:
             parts = line.split(" ")
-            size = int(parts[-1])
+            size = int(parts[-1].strip())
             code = int(parts[-2])
             total_size += size
             if code in status_codes:
@@ -37,8 +37,7 @@ if __name__ == "__main__":
         except ValueError:
             continue
 
-        line_count += 1
-        if line_count % 10 == 0:
-            print_stats()
-
+    line_count += 1
+    if line_count % 10 == 0:
+        print_stats()
     print_stats()
