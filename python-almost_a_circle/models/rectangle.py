@@ -65,3 +65,10 @@ class Rectangle(Base):
         """Docs for holberton checker"""
 
         return (self.__height * self.__width)
+
+    def display(self):
+        """Docs for holberton checker"""
+
+        abscissa = " " * self.__x + "#" * self.__width + '\n'
+        ordinate = '\n' * self.__y + abscissa * self.__height
+        print(ordinate, end="")
