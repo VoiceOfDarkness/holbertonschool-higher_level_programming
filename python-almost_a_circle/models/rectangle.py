@@ -78,9 +78,14 @@ class Rectangle(Base):
         ordinate = '\n' * self.__y + abscissa * self.__height
         print(ordinate, end="")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs)
         """Docs for holberton checker"""
 
-        attributes = ['id', 'width', 'height', 'x', 'y']
-        for attribute, value in zip(attributes, args):
-            setattr(self, attribute, value)
+        if args and len(args) != 0:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for attribute, value in zip(attributes, args):
+                setattr(self, attribute, value)
+        elif kwargs and len(kwargs) != 0:
+            for key, val in kwargs.items():
+                setattr(self, key, val)
+
