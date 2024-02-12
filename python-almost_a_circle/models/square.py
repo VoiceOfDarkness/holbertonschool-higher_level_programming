@@ -18,6 +18,19 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        """Docs for holberton checker"""
+
+        attribues = ['id', 'size', 'x', 'y']
+        
+        if args and len(args) != 0:
+            for key, val in zip(attribues, args):
+                setattr(self, key, val)
+        elif kwargs and len(kwargs) != 0:
+            for key, val in kwargs.items():
+                if key in attribues:
+                    setattr(self, key, val)
+
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}"
                 .format(self.id, self.x, self.y, self.width))
