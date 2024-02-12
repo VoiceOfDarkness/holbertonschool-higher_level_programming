@@ -23,3 +23,16 @@ class Base:
             return "[]"
 
         return (json.dumps(list_dictionaries))
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Docs for holberton checker"""
+
+        filename = f"{cls.__name__}.json"
+
+        with open(filename, mode='w') as f:
+            if list_objs is None and list_objs != {}:
+                f.write("[]")
+            else:
+                dict_lists = [o.to_dictionary() for o in list_objs]
+                f.write(cls.to_json_string(dict_lists))
