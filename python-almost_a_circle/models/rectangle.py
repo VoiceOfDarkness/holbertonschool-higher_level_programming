@@ -77,3 +77,8 @@ class Rectangle(Base):
         abscissa = " " * self.__x + "#" * self.__width + '\n'
         ordinate = '\n' * self.__y + abscissa * self.__height
         print(ordinate, end="")
+
+    def update(self, *args):
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        for attribute, value in zip(attributes, args):
+            setattr(self, attribute, value)
