@@ -62,8 +62,9 @@ class Rectangle(Base):
         self.__y = value
 
     def __str__(self) -> str:
-        return f"[Rectangle] ({self.__id}) {self.__x}/{self.__y} - \
-                {self.__width}/{self.__height}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
     def area(self):
         """Docs for holberton checker"""
