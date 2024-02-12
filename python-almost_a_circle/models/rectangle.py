@@ -62,4 +62,6 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Docs for holberton checker"""
+
         return (self.__height * self.__width)
