@@ -29,7 +29,7 @@ class Base:
         """Docs for holberton checker"""
 
         if json_string is None or len(json_string) == 0:
-            return "[]"
+            return []
         return (json.loads(json_string))
 
     @classmethod
