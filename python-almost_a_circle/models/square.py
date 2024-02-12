@@ -22,7 +22,6 @@ class Square(Rectangle):
         """Docs for holberton checker"""
 
         attribues = ['id', 'size', 'x', 'y']
-        
         if args and len(args) != 0:
             for key, val in zip(attribues, args):
                 setattr(self, key, val)
