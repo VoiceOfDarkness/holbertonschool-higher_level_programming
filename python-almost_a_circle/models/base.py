@@ -12,4 +12,4 @@ class Base:
             self.id = id
         else:
             Base.__np_objects += 1
-            self.id = Base.__np_objects 
+            self.id = Base.__np_objects
