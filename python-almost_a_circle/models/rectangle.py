@@ -92,6 +92,8 @@ class Rectangle(Base):
                     setattr(self, key, val)
 
     def to_dictionary(self):
+        """Docs for holberton checker"""
+
         return {
             "x": self.__x,
             "y": self.__y,
