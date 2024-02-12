@@ -79,6 +79,8 @@ class Rectangle(Base):
         print(ordinate, end="")
 
     def update(self, *args):
+        """Docs for holberton checker"""
+
         attributes = ['id', 'width', 'height', 'x', 'y']
         for attribute, value in zip(attributes, args):
             setattr(self, attribute, value)
