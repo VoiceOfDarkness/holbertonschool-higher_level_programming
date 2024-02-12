@@ -83,7 +83,6 @@ class Rectangle(Base):
 
         attributes = ['id', 'width', 'height', 'x', 'y']
 
-
         if args and len(args) != 0:
             for attribute, value in zip(attributes, args):
                 setattr(self, attribute, value)
