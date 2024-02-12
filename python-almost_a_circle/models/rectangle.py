@@ -61,6 +61,10 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
+    def __str__(self) -> str:
+        return f"[Rectangle] ({self.__id}) {self.__x}/{self.__y} - \
+                {self.__width}/{self.__height}"
+
     def area(self):
         """Docs for holberton checker"""
 
