@@ -30,6 +30,16 @@ class Square(Rectangle):
                 if key in attribues:
                     setattr(self, key, val)
 
+    def to_dictionary(self):
+        """Docs for holberton checker"""
+
+        return {
+            "id": self.id,
+            "x": self.x,
+            "size": self.size,
+            "y": self.y
+        }
+
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}"
                 .format(self.id, self.x, self.y, self.width))
