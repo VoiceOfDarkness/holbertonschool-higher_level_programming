@@ -105,6 +105,15 @@ class TestRectangle(unittest.TestCase):
             self.rect.display()
             self.assertEqual(buf.getvalue(), expected_output)
 
+    def test_create(self):
+        rect_dict = {'id': 89, 'width': 10, 'height': 20, 'x': 2, 'y': 3}
+        rect = Rectangle.create(**rect_dict)
+        self.assertEqual(rect.id, 89)
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 20)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 3)
+
 
 if __name__ == '__main__':
     unittest.main()
