@@ -1,4 +1,4 @@
-qimport json
+import json
 import os
 import unittest
 
@@ -10,12 +10,13 @@ class TestBase(unittest.TestCase):
     def setUp(self):
         """This method is called before each test"""
 
+        Base._Base__np_objects = 0
         self.base = Base()
 
     def test_init(self): 
         """Test the __init__ method"""
 
-        self.assertEqual(self.base.id, 3)
+        self.assertEqual(self.base.id, 1)
 
     def test_id_passed(self):
         """Test if the Base class is correctly saving the ID passed to it"""
