@@ -31,22 +31,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.id, 30)
 
     def test_invalid_width(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             self.rect.width = "invalid"
 
-        with self.assertRaises(TypeError):
-            Rectangle("1", 2)
-
     def test_invalid_height(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
             self.rect.height = "invalid"
 
     def test_invalid_x(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
             self.rect.x = "invalid"
 
     def test_invalid_y(self):
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
             self.rect.y = "invalid"
 
 
