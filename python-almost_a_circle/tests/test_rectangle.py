@@ -1,6 +1,7 @@
 import unittest
 import io
 import os
+import json
 
 from contextlib import redirect_stdout
 
@@ -125,6 +126,24 @@ class TestRectangle(unittest.TestCase):
         Rectangle.save_to_file([])
         with open("Rectangle.json", mode="r") as file:
             self.assertEqual(file.read(), "[]")
+
+    def test_save_to_file(self):
+        rect = Rectangle(1, 2)
+        Rectangle.save_to_file([rect])
+        with open("Rectangle.json", "r") as file:
+            content = json.load(file)
+            self.assertEqual(content, [rect.to_dictionary()])
+
+    def test_load_from_file_no_file(self):
+        rectangles = Rectangle.load_from_file()
+        self.assertEqual(rectangles, [])
+
+    def test_load_from_file(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
+        Rectangle.save_to_file([rect])
+        rectangles = Rectangle.load_from_file()
+        self.assertEqual(len(rectangles), 1)
+        self.assertEqual(rectangles[0].to_dictionary(), rect.to_dictionary())
 
     def tearDown(self):
         """This method is called after each test"""
