@@ -1,4 +1,8 @@
 import unittest
+import io
+
+from contextlib import redirect_stdout
+
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
@@ -66,7 +70,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
         with self.assertRaises(ValueError):
-            Rectangle(-1, -2)
+            Rectangle(1, -2)
         with self.assertRaises(ValueError):
             Rectangle(0, 2)
         with self.assertRaises(ValueError):
@@ -75,6 +79,31 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -4)
+
+    def test_str(self):
+        self.assertEqual(str(self.rect), "[Rectangle] (25) 15/20 - 5/10")
+
+    def test_display_without_x_y(self):
+        self.rect.x = 0
+        self.rect.y = 0
+        expected_output = "\n".join(["#"*5 for _ in range(10)]) + "\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.rect.display()
+            self.assertEqual(buf.getvalue(), expected_output)
+
+    def test_display_without_y(self):
+        self.rect.x = 15
+        self.rect.y = 0
+        expected_output = "\n".join([" "*15 + "#"*5 for _ in range(10)]) + "\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.rect.display()
+            self.assertEqual(buf.getvalue(), expected_output)
+
+    def test_display(self):
+        expected_output = "\n"*20 + "\n".join([" "*15 + "#"*5 for _ in range(10)]) + "\n"
+        with io.StringIO() as buf, redirect_stdout(buf):
+            self.rect.display()
+            self.assertEqual(buf.getvalue(), expected_output)
 
 
 if __name__ == '__main__':
