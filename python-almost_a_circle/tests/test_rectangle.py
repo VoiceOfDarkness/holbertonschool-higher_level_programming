@@ -1,12 +1,15 @@
 import unittest
-
 from models.rectangle import Rectangle
-
 
 class TestRectangle(unittest.TestCase):
 
     def setUp(self):
-        self.rect = Rectangle(5, 10, 15, 20, 25) 
+        self.rect = Rectangle(5, 10, 15, 20, 25)
+        self.test_cases = [
+            {"params": (1, 2), "expected": (1, 2, 0, 0)},
+            {"params": (1, 2, 3), "expected": (1, 2, 3, 0)},
+            {"params": (1, 2, 3, 4), "expected": (1, 2, 3, 4)},
+        ]
 
     def test_attributes(self):
         self.assertEqual(self.rect.width, 5)
@@ -46,6 +49,20 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.rect.y = "invalid"
 
+    def test_rectangle_initialization(self):
+        for test_case in self.test_cases:
+            rect = Rectangle(*test_case["params"])
+            self.assertEqual((rect.width, rect.height, rect.x, rect.y), test_case["expected"])
+
+    def test_invalid_initialization(self):
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
 
 if __name__ == '__main__':
     unittest.main()
