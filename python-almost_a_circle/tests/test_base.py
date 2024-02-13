@@ -1,4 +1,4 @@
-import json
+qimport json
 import os
 import unittest
 
@@ -16,6 +16,12 @@ class TestBase(unittest.TestCase):
         """Test the __init__ method"""
 
         self.assertEqual(self.base.id, 3)
+
+    def test_id_passed(self):
+        """Test if the Base class is correctly saving the ID passed to it"""
+
+        base = Base(89)
+        self.assertEqual(base.id, 89)
 
     def test_to_json_string(self):
         """Test the to_json_string method"""
