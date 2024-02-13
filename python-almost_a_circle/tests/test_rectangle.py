@@ -1,4 +1,5 @@
 import unittest
+
 from models.rectangle import Rectangle
 
 
@@ -6,6 +7,7 @@ class TestRectangle(unittest.TestCase):
 
     def setUp(self):
         self.rect = Rectangle(5, 10, 15, 20, 25)
+        self.rect2 = Rectangle(1, 2)
 
     def test_attributes(self):
         self.assertEqual(self.rect.width, 5)
@@ -13,6 +15,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.x, 15)
         self.assertEqual(self.rect.y, 20)
         self.assertEqual(self.rect.id, 25)
+
+        self.assertEqual(self.rect2.width, 1)
+        self.assertEqual(self.rect2.height, 2)
+        self.assertEqual(self.rect2.x, 0)
+        self.assertEqual(self.rect2.y, 0)
 
     def test_area(self):
         self.assertEqual(self.rect.area(), 50)
