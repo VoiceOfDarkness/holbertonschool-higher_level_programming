@@ -1,9 +1,11 @@
 import unittest
 import io
+import os
 
 from contextlib import redirect_stdout
 
 from models.rectangle import Rectangle
+
 
 class TestRectangle(unittest.TestCase):
 
@@ -114,6 +116,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.x, 2)
         self.assertEqual(rect.y, 3)
 
+    def test_save_to_file_none(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_save_to_file_empty(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", mode="r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def tearDown(self):
+        """This method is called after each test"""
+
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
 
 if __name__ == '__main__':
     unittest.main()
