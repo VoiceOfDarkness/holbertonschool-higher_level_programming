@@ -1,6 +1,7 @@
 import io
 import json
 import os
+from re import S
 import unittest
 from contextlib import redirect_stdout
 
@@ -55,6 +56,8 @@ class TestSquare(unittest.TestCase):
             self.assertEqual((square.size, square.x, square.y), test_case["expected"])
 
     def test_invalid_initialization(self):
+        with self.assertRaises(ValueError):
+            Square(0)
         with self.assertRaises(TypeError):
             Square("1")
         with self.assertRaises(TypeError):
