@@ -55,3 +55,17 @@ class Base:
             new = cls(1)
         new.update(**dictionary)
         return new
+
+    @classmethod
+    def load_from_file(cls):
+        """Docs for holberton checker"""
+
+        filename = f"{cls.__name__}.json"
+
+        try:
+            with open(filename, mode='r') as f:
+                list_inst = cls.from_json_string(f.read())
+        except FileExistsError:
+            return []
+
+        return [cls.create(**dict_inst) for dict_inst in list_inst]
