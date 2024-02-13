@@ -65,7 +65,7 @@ class Base:
         try:
             with open(filename, mode='r') as f:
                 list_inst = cls.from_json_string(f.read())
-        except FileExistsError:
+        except FileNotFoundError:
             return []
 
         return [cls.create(**dict_inst) for dict_inst in list_inst]
