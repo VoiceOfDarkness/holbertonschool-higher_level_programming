@@ -24,7 +24,7 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
 
-        return (json.dumps(list_dictionaries))
+        return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
@@ -32,7 +32,7 @@ class Base:
 
         if json_string is None or len(json_string) == 0:
             return []
-        return (json.loads(json_string))
+        return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -40,7 +40,7 @@ class Base:
 
         filename = f"{cls.__name__}.json"
 
-        with open(filename, mode='w') as f:
+        with open(filename, mode="w") as f:
             if list_objs is None and list_objs != {}:
                 f.write("[]")
             else:
@@ -65,7 +65,7 @@ class Base:
         filename = f"{cls.__name__}.json"
 
         try:
-            with open(filename, mode='r') as f:
+            with open(filename, mode="r") as f:
                 list_inst = cls.from_json_string(f.read())
         except FileNotFoundError:
             return []
@@ -97,6 +97,5 @@ class Base:
             turtle.backward(rect.width)
             turtle.right(90)
             turtle.backward(rect.height)
-
 
         input()

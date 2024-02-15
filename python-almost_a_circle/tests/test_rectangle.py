@@ -59,7 +59,8 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_initialization(self):
         for test_case in self.test_cases:
             rect = Rectangle(*test_case["params"])
-            self.assertEqual((rect.width, rect.height, rect.x, rect.y), test_case["expected"])
+            self.assertEqual((rect.width, rect.height, rect.x, rect.y),
+                             test_case["expected"])
 
     def test_invalid_initialization(self):
         with self.assertRaises(TypeError):
@@ -103,7 +104,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(buf.getvalue(), expected_output)
 
     def test_display(self):
-        expected_output = "\n"*20 + "\n".join([" "*15 + "#"*5 for _ in range(10)]) + "\n"
+        expected_output = "\n" * 20 + (" "*15 + "#"*5 + "\n") * 10
         with io.StringIO() as buf, redirect_stdout(buf):
             self.rect.display()
             self.assertEqual(buf.getvalue(), expected_output)
@@ -150,8 +151,9 @@ class TestRectangle(unittest.TestCase):
 
         try:
             os.remove("Rectangle.json")
-        except:
+        except FileNotFoundError:
             pass
+
 
 if __name__ == '__main__':
     unittest.main()

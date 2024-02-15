@@ -9,7 +9,6 @@ from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
-
     def setUp(self):
         self.square = Square(5, 10, 15, 25)
         self.test_cases = [
@@ -53,7 +52,8 @@ class TestSquare(unittest.TestCase):
     def test_Square_initialization(self):
         for test_case in self.test_cases:
             square = Square(*test_case["params"])
-            self.assertEqual((square.size, square.x, square.y), test_case["expected"])
+            self.assertEqual((square.size, square.x, square.y),
+                             test_case["expected"])
 
     def test_invalid_initialization(self):
         with self.assertRaises(ValueError):
@@ -77,7 +77,7 @@ class TestSquare(unittest.TestCase):
     def test_display_without_x_y(self):
         self.square.x = 0
         self.square.y = 0
-        expected_output = "\n".join(["#"*5 for _ in range(5)]) + "\n"
+        expected_output = "\n".join(["#" * 5 for _ in range(5)]) + "\n"
         with io.StringIO() as buf, redirect_stdout(buf):
             self.square.display()
             self.assertEqual(buf.getvalue(), expected_output)
@@ -85,19 +85,20 @@ class TestSquare(unittest.TestCase):
     def test_display_without_y(self):
         self.square.x = 10
         self.square.y = 0
-        expected_output = "\n".join([" "*10 + "#"*5 for _ in range(5)]) + "\n"
+        expected_output = "".join([" "*10 + "#"*5 + "\n" for _ in range(5)])
         with io.StringIO() as buf, redirect_stdout(buf):
             self.square.display()
             self.assertEqual(buf.getvalue(), expected_output)
 
     def test_display(self):
-        expected_output = "\n"*15 + "\n".join([" "*10 + "#"*5 for _ in range(5)]) + "\n"
+        expected_output = "\n" * 15 + (" "*10 + "#"*5 + "\n") * 5
+
         with io.StringIO() as buf, redirect_stdout(buf):
             self.square.display()
             self.assertEqual(buf.getvalue(), expected_output)
 
     def test_create(self):
-        square_dict = {'id': 89, 'size': 10, 'x': 2, 'y': 3}
+        square_dict = {"id": 89, "size": 10, "x": 2, "y": 3}
         square = Square.create(**square_dict)
         self.assertEqual(square.id, 89)
         self.assertEqual(square.size, 10)
@@ -137,9 +138,9 @@ class TestSquare(unittest.TestCase):
 
         try:
             os.remove("Square.json")
-        except:
+        except FileNotFoundError:
             pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

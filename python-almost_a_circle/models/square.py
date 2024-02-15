@@ -21,7 +21,7 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Docs for holberton checker"""
 
-        attribues = ['id', 'size', 'x', 'y']
+        attribues = ["id", "size", "x", "y"]
         if args and len(args) != 0:
             for key, val in zip(attribues, args):
                 setattr(self, key, val)
@@ -33,13 +33,9 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Docs for holberton checker"""
 
-        return {
-            "id": self.id,
-            "x": self.x,
-            "size": self.size,
-            "y": self.y
-        }
+        return {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
 
     def __str__(self):
-        return ("[Square] ({}) {}/{} - {}"
-                .format(self.id, self.x, self.y, self.width))
+        return "[Square] ({}) {}/{} - {}".format(self.id,
+                                                 self.x,
+                                                 self.y, self.width)

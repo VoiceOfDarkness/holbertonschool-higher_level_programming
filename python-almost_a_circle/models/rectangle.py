@@ -62,26 +62,26 @@ class Rectangle(Base):
         self.__y = value
 
     def __str__(self) -> str:
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
 
     def area(self):
         """Docs for holberton checker"""
 
-        return (self.__height * self.__width)
+        return self.__height * self.__width
 
     def display(self):
         """Docs for holberton checker"""
 
-        abscissa = " " * self.__x + "#" * self.__width + '\n'
-        ordinate = '\n' * self.__y + abscissa * self.__height
+        abscissa = " " * self.__x + "#" * self.__width + "\n"
+        ordinate = "\n" * self.__y + abscissa * self.__height
         print(ordinate, end="")
 
     def update(self, *args, **kwargs):
         """Docs for holberton checker"""
 
-        attributes = ['id', 'width', 'height', 'x', 'y']
+        attributes = ["id", "width", "height", "x", "y"]
 
         if args and len(args) != 0:
             for attribute, value in zip(attributes, args):
@@ -99,5 +99,5 @@ class Rectangle(Base):
             "y": self.__y,
             "id": self.id,
             "height": self.__height,
-            "width": self.__width
+            "width": self.__width,
         }
