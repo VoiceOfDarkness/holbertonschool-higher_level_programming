@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Docs for holberton checker"""
 import json
+from os import initgroups
+import turtle
 
 
 class Base:
@@ -69,3 +71,32 @@ class Base:
             return []
 
         return [cls.create(**dict_inst) for dict_inst in list_inst]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        for rect in list_rectangles:
+            turtle.up()
+            turtle.goto(rect.x, rect.y)
+            turtle.down()
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.left(90)
+            turtle.backward(rect.width)
+            turtle.right(90)
+            turtle.backward(rect.height)
+
+        for rect in list_squares:
+            turtle.up()
+            turtle.goto(rect.x, rect.y)
+            turtle.down()
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.left(90)
+            turtle.backward(rect.width)
+            turtle.right(90)
+            turtle.backward(rect.height)
+
+
+        input()
