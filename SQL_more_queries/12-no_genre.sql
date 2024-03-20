@@ -3,8 +3,8 @@ SELECT
     s.title,
     g.genre_id
 FROM
-    tv_show AS s
-    LEFT JOIN tv_show_genres AS g ON s.id = g.show_id
+    tv_show_genres AS g
+    RIGHT JOIN tv_show AS s ON s.id = g.show_id
 WHERE
     g.genre_id IS NULL
 ORDER BY
