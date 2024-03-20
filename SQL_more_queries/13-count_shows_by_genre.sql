@@ -7,4 +7,4 @@ FROM
 GROUP BY
     g.name
 ORDER BY
-    2 DESC;
+    number_of_shows DESC;
