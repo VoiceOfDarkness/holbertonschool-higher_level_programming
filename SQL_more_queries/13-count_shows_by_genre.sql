@@ -1,10 +1,10 @@
 SELECT
-    g.name AS genre,
-    count(sg.show_id) AS number_of_shows
+    g.`name` AS `genre`,
+    COUNT(*) AS `number_of_shows`
 FROM
-    tv_show_genres s
-    LEFT JOIN tv_genres g ON s.genre_id = g.id
+    `tv_genres` AS g
+    INNER JOIN `tv_show_genres` AS t ON g.`id` = t.`genre_id`
 GROUP BY
-    g.name
+    g.`name`
 ORDER BY
-    number_of_shows DESC;
+    `number_of_shows` DESC;
