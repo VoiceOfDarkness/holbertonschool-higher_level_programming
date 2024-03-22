@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Lists the State object with the name passed as argument
-from the database hbtn_0e_6_usa. """                               <state name searched>
+from the database hbtn_0e_6_usa. """
 
 import sys
 from sqlalchemy import create_engine
