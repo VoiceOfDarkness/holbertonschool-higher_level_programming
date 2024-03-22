@@ -12,7 +12,7 @@ db = ms.connect(host=host, user=user, passwd=passwd, db=db, port=3306)
 
 def list_all_states():
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC;")
+    cur.execute("SELECT * FROM states;")
     return cur.fetchall()
 
 
