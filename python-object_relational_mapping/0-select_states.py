@@ -7,7 +7,7 @@ user = argv[1]
 passwd = argv[2]
 db = argv[3]
 
-db = ms.connect(host=host, user=user, passwd=passwd, db=db)
+db = ms.connect(host=host, user=user, passwd=passwd, db=db, port=3306)
 
 
 def list_all_states():
