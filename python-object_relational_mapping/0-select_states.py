@@ -12,12 +12,9 @@ db = argv[3]
 db = ms.connect(host=host, user=user, passwd=passwd, db=db, port=3306)
 
 
-def list_all_states():
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states;")
-    return cur.fetchall()
-
-
 if __name__ == "__main__":
-    print(*list_all_states(), sep="\n")
+    cur = db.cursor()
+    cur.execute("SELECT * FROM Customers;")
+    
+    print(*cur.fetchall(), sep="\n")
     db.close()
