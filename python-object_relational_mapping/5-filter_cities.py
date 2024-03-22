@@ -3,6 +3,7 @@
 states table of the database hbtn_0e_4_usa.
                             <state name searched> """
 import sys
+
 import MySQLdb
 
 if __name__ == "__main__":

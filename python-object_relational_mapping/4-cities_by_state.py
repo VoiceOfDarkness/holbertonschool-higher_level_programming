@@ -2,6 +2,7 @@
 """ Lists all cities of the database hbtn_0e_4_usa, ordered by city id. """
 
 import sys
+
 import MySQLdb
 
 if __name__ == "__main__":

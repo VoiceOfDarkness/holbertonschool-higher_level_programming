@@ -2,6 +2,7 @@
 """ Displays all values in the states table of the database hbtn_0e_0_usa
                               <state name searched>"""
 import sys
+
 import MySQLdb
 
 if __name__ == "__main__":
